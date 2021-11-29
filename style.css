@@ -21,6 +21,12 @@ html{
 .header_title{
     color: #e6e6e6;
 }
+#shape{
+    width: 3em;
+}
+h1 > small{
+    font-size: .5em;
+}
 .buttons_container{
     display: flex;
     justify-content: center;
@@ -49,8 +55,10 @@ html{
     width: 100%;
     border-radius: 2px;
     padding: .5em 1em;
-    opacity: 0;
-    
     transition:all .3s ease;
-    pointer-events: none;
+    display: none;
+    font-size: .9em;
+    font-family: 'Quicksand', sans-serif;
 }
+#add_input:focus{outline: none;}
+#filter_input:focus{outline: none;}
