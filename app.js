@@ -5,6 +5,7 @@ const addInput = document.querySelector('#add_input')
 const filterInput = document.querySelector('#filter_input')
 const addForm = document.querySelector("#add")
 const filterForm = document.querySelector('#filter')
+const container = document.querySelector('.tasks_container')
 
 let task = []
 
@@ -23,6 +24,7 @@ filterBtn.addEventListener('click',e=>{
 let getTask = localStorage.getItem("tasks")
 if(getTask) {
     task = JSON.parse(getTask)
+ 
 }
 
 
@@ -34,4 +36,22 @@ addForm.addEventListener('submit',e=>{
 
     // put on localStorage
     localStorage.setItem("tasks",JSON.stringify(task))
+    dom()
 })
+
+// put data on DOM
+const dom = ()=>{
+    container.innerHTML = ""
+    task.forEach((item)=>{
+        let li = document.createElement('li')
+        let p = document.createElement('p')
+        let sp = document.createElement('span')
+
+        p.textContent = item
+        sp.innerHTML = "&times;"
+        li.appendChild(p)
+        li.appendChild(sp)
+
+        container.appendChild(li)
+    })
+}
