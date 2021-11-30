@@ -18,11 +18,16 @@ html{
     margin: 8em auto;
     text-align: center;
 }
+@media(max-width:650px) {
+    .outer_container{
+        width: 100%;
+    }
+}
 .header_title{
     color: #e6e6e6;
 }
 #shape{
-    width: 3em;
+    width: 2em;
 }
 h1 > small{
     font-size: .5em;
