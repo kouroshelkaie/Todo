@@ -59,7 +59,7 @@ h1 > small{
 #filter > input{
     width: 100%;
     border-radius: 2px;
-    padding: .5em 1em;
+    padding: .8em 1em;
     transition:all .3s ease;
     display: none;
     font-size: .9em;
@@ -68,3 +68,21 @@ h1 > small{
 #add_input:focus{outline: none;}
 #filter_input:focus{outline: none;}
 
+/* DOM li styles */
+.tasks_container{
+    list-style-type: none;
+    padding: 0%;
+    margin: 2em 0;
+}
+.tasks_container > li {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e6e6e6;
+    border-radius: 2px;
+    margin: .2em 0;
+    padding:.4em .8em;
+    color: #333333;
+}
+.tasks_container > li > p{
+    margin: 0%;
+}

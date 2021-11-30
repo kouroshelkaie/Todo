@@ -13,10 +13,16 @@ let task = []
 addBtn.addEventListener('click',e=>{
     addInput.style.display = "block"
     filterInput.style.display = "none"
+
+    // focus on textInput
+    addInput.focus()
 })
 filterBtn.addEventListener('click',e=>{
     filterInput.style.display = "block"
     addInput.style.display = "none"
+
+    // focus on textInput
+    filterInput.focus()
 })
 
 
@@ -24,7 +30,18 @@ filterBtn.addEventListener('click',e=>{
 let getTask = localStorage.getItem("tasks")
 if(getTask) {
     task = JSON.parse(getTask)
- 
+    task.forEach((item)=>{
+        let li = document.createElement('li')
+        let p = document.createElement('p')
+        let sp = document.createElement('span')
+
+        p.textContent = item
+        sp.innerHTML = "&times;"
+        li.appendChild(p)
+        li.appendChild(sp)
+
+        container.prepend(li)
+    })
 }
 
 
@@ -33,10 +50,11 @@ addForm.addEventListener('submit',e=>{
     e.preventDefault()
     let inputValue = addInput.value
     task.push(inputValue)
-
+    
     // put on localStorage
     localStorage.setItem("tasks",JSON.stringify(task))
     dom()
+    addInput.value = " "
 })
 
 // put data on DOM
@@ -52,6 +70,6 @@ const dom = ()=>{
         li.appendChild(p)
         li.appendChild(sp)
 
-        container.appendChild(li)
+        container.prepend(li)
     })
 }
