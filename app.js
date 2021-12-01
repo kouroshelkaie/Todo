@@ -6,6 +6,7 @@ const filterInput = document.querySelector('#filter_input')
 const addForm = document.querySelector("#add")
 const filterForm = document.querySelector('#filter')
 const container = document.querySelector('.tasks_container')
+const error = document.querySelector('.error')
 let flag = 1
 
 let task = []
@@ -88,6 +89,12 @@ addForm.addEventListener('submit',e=>{
         dom(task)
         addInput.value = ""
     } else {
-        alert("null")
+        addInput.classList.add("input_error")
+        error.style.display = "block"
+        addInput.addEventListener('input',e=>{
+            addInput.classList.remove("input_error")
+            error.style.display = "none"
+        })
     }
 })
+
