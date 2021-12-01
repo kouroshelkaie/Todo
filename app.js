@@ -28,32 +28,32 @@ const dom = (data)=>{
     container.innerHTML = ""
     data.forEach((item,index)=>{
         let li = document.createElement('li')
-        let p = document.createElement('p')
         let sp = document.createElement('span')
+        let p = document.createElement('p')
+        p.classList.add("para")
         p.textContent = item.todo
+    // done task stroke
+        p.addEventListener('click',e=>{
+            if(item.done === true) {
+                // update in array
+                item.done = false
+                // update the new array in localStorage
+                localStorage.setItem("tasks",JSON.stringify(data))
+                // update the new array in DOM
+                dom(task)
+            } else {
+                item.done = true
+                localStorage.setItem("tasks",JSON.stringify(data))
+                dom(task)    
+            }
+        })
+        p.style.textDecoration = item.done ? "initial":"line-through"
         sp.innerHTML = "&times;"
         li.appendChild(p)
         li.appendChild(sp)
         container.prepend(li)
         sp.classList.add('close_button')
-        p.classList.add('para')
-    // done task stroke
-        // p.addEventListener('click',e=>{
-        //     if(item.done === true) {
-        //         // update in array
-        //         item.done = false
-        //         // update the new array in localStorage
-        //         localStorage.setItem("tasks",JSON.stringify(data))
-        //         p.style.color = 'red'
-        //         // update the new array in DOM
-        //         // dom(task)
-        //     } else {
-        //         item.done = true
-        //         localStorage.setItem("tasks",JSON.stringify(data))
-        //         p.style.color ="green"
-        //         // dom(task)    
-        //     }
-        // })
+
     // delete task
         sp.addEventListener('click',e=>{
             // detele from array
@@ -78,12 +78,16 @@ if(getTask) {
 addForm.addEventListener('submit',e=>{
     e.preventDefault()
     let inputValue = addInput.value
-    task.push({
-        todo: inputValue,
-        done : true
-    })
-    // =====localStorage====
-    localStorage.setItem("tasks",JSON.stringify(task))
-    dom(task)
-    addInput.value = " "
+    if(inputValue) {
+        task.push({
+            todo: inputValue,
+            done : true
+        })
+        // =====localStorage====
+        localStorage.setItem("tasks",JSON.stringify(task))
+        dom(task)
+        addInput.value = ""
+    } else {
+        alert("null")
+    }
 })
