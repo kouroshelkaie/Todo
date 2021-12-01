@@ -86,3 +86,15 @@ h1 > small{
 .tasks_container > li > p{
     margin: 0%;
 }
+
+/* close__button */
+.close_button{
+    color: 08898F;
+    cursor: pointer;;
+}
+.para{
+    cursor: pointer;
+}
+.stroke{
+    text-decoration: line-through;
+}
