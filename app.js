@@ -114,16 +114,4 @@ theme.addEventListener("click",e=>{
     document.body.classList.toggle("dark_background")
 })
 
-// samples for first look
-const sample = [{
-    todo:"Shopping",
-    done:true
-},{
-    todo:"call kevin",
-    done:false
-},{
-    todo:"Daily meeting at 9pm",
-    done:true
-}]
-localStorage.setItem("tasks",JSON.stringify(sample))
-dom(sample)
+  
