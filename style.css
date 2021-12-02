@@ -128,5 +128,8 @@ h1 > small{
     cursor: pointer;
 }
 .fa-sun{
-    color: yellow;
+    color: #12bcc5;
+}
+.fa-moon{
+    color: #333333;
 }
