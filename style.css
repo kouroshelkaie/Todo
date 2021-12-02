@@ -41,7 +41,7 @@ html{
         margin: 3em auto;
     }
 }
-@media(max-width:500px) {
+@media(max-width:600px) {
     .outer_container{
         margin: 1em auto;
     }
