@@ -7,10 +7,12 @@ const addForm = document.querySelector("#add")
 const filterForm = document.querySelector('#filter')
 const container = document.querySelector('.tasks_container')
 const error = document.querySelector('.error')
+const clear = document.querySelector('#clear')
+const clearAll = document.querySelector('#clear_all')
 let flag = 1
 
 let task = []
-
+  
 // hide/visible inputs
 addBtn.addEventListener('click',e=>{
     addInput.style.display = "block"
@@ -34,21 +36,22 @@ const dom = (data)=>{
         p.classList.add("para")
         p.textContent = item.todo
     // done task stroke
-        p.addEventListener('click',e=>{
-            if(item.done === true) {
-                // update in array
-                item.done = false
-                // update the new array in localStorage
-                localStorage.setItem("tasks",JSON.stringify(data))
-                // update the new array in DOM
-                dom(task)
-            } else {
-                item.done = true
-                localStorage.setItem("tasks",JSON.stringify(data))
-                dom(task)    
-            }
-        })
+    p.addEventListener('click',e=>{
+        if(item.done === true) {
+            // update in array
+            item.done = false
+            // update the new array in localStorage
+            localStorage.setItem("tasks",JSON.stringify(data))
+            // update the new array in DOM
+            dom(task)
+        } else {
+            item.done = true
+            localStorage.setItem("tasks",JSON.stringify(data))
+            dom(task)    
+        }
+    })
         p.style.textDecoration = item.done ? "initial":"line-through"
+
         sp.innerHTML = "&times;"
         li.appendChild(p)
         li.appendChild(sp)
@@ -98,3 +101,18 @@ addForm.addEventListener('submit',e=>{
     }
 })
 
+
+    // clear All Done
+    clear.addEventListener('click',e=>{
+        task.forEach((item,index)=>{
+            if(!item.done) {
+                task.splice(index,1)
+                localStorage.setItem("tasks",JSON.stringify(task))
+                dom(task)
+            }
+        })
+    })
+    clearAll.addEventListener('click',e=>{
+    container.innerHTML = " "
+    localStorage.clear()
+    })

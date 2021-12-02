@@ -38,6 +38,7 @@ h1 > small{
     justify-content: center;
     margin: 1em 0;
 }
+
 .add_button,
 .filter_button
 {
@@ -114,4 +115,11 @@ h1 > small{
     margin: 0;
     padding: .3em 1em;
     display: none;
+}
+
+.features_container{
+ display: flex;
+ justify-content: center;
+ position: sticky;
+ bottom: 0%;
 }
