@@ -41,6 +41,11 @@ html{
         margin: 3em auto;
     }
 }
+@media(max-width:500px) {
+    .outer_container{
+        margin: 1em auto;
+    }
+}
 .header_title{
     color: #e6e6e6;
 }
