@@ -18,7 +18,6 @@ html{
     width: 40%;
     margin: 8em auto;
     text-align: center;
-    /* border: 1px solid black; */
 }
 @media(max-width:1350px) {
     .outer_container{
@@ -72,10 +71,16 @@ h1 > small{
     font-size: .9em;
     letter-spacing: 1px;
 }
-@media(max-width:768px) {
+@media(max-width:600px) {
     .add_button,
     .filter_button{
-        padding: .9em 0em;
+        width: 30%;
+    }
+}
+@media(max-width:500px) {
+    .add_button,
+    .filter_button{
+        width: 35%;
     }
 }
 .add_button:hover{background-color: #15676C;}
@@ -154,6 +159,11 @@ h1 > small{
 @media(max-width:650px) {
     .fas{
         top: 0%;
+    }
+}
+@media(max-width:550px) {
+    .fas{
+        font-size: .8em;
     }
 }
 .fa-sun{
