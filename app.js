@@ -1,16 +1,17 @@
 // Assets
-const addBtn = document.querySelector(".add_button")
-const filterBtn = document.querySelector(".filter_button")
-const addInput = document.querySelector('#add_input')
+const addBtn =      document.querySelector(".add_button")
+const filterBtn =   document.querySelector(".filter_button")
+const addInput =    document.querySelector('#add_input')
 const filterInput = document.querySelector('#filter_input')
-const addForm = document.querySelector("#add")
-const filterForm = document.querySelector('#filter')
-const container = document.querySelector('.tasks_container')
-const error = document.querySelector('.error')
-const clear = document.querySelector('#clear')
-const clearAll = document.querySelector('#clear_all')
+const addForm =     document.querySelector("#add")
+const filterForm =  document.querySelector('#filter')
+const container =   document.querySelector('.tasks_container')
+const error =       document.querySelector('.error')
+const clear =       document.querySelector('#clear')
+const clearAll =    document.querySelector('#clear_all')
+const theme =       document.querySelector('.theme_button')
+const fontAwesom =  document.querySelector('#font_awesome')
 let flag = 1
-
 let task = []
   
 // hide/visible inputs
@@ -24,7 +25,6 @@ filterBtn.addEventListener('click',e=>{
     addInput.style.display = "none"
     filterInput.focus()
 })
-
 
 // put data on DOM
 const dom = (data)=>{
@@ -101,18 +101,16 @@ addForm.addEventListener('submit',e=>{
     }
 })
 
-
-    // clear All Done
-    clear.addEventListener('click',e=>{
-        task.forEach((item,index)=>{
-            if(!item.done) {
-                task.splice(index,1)
-                localStorage.setItem("tasks",JSON.stringify(task))
-                dom(task)
-            }
-        })
-    })
-    clearAll.addEventListener('click',e=>{
-    container.innerHTML = " "
-    localStorage.clear()
-    })
+// dark theme
+theme.addEventListener("click",e=>{
+    if(fontAwesom.classList.contains('fa-moon')){
+        fontAwesom.classList.remove('fa-moon')
+        fontAwesom.classList.add('fa-sun')
+    } else{
+        fontAwesom.classList.remove('fa-sun')
+        fontAwesom.classList.add('fa-moon')
+    }
+ 
+    document.body.classList.toggle("dark_background")
+})
+    
