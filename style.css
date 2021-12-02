@@ -114,6 +114,11 @@ h1 > small{
     padding:.4em .8em;
     color: #333333;
 }
+@media(max-width:650px) {
+    .tasks_container > li{
+        padding: .6em .8em;
+    }
+}
 .tasks_container > li > p{
     margin: 0%;
 }
