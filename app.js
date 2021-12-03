@@ -7,8 +7,7 @@ const addForm =     document.querySelector("#add")
 const filterForm =  document.querySelector('#filter')
 const container =   document.querySelector('.tasks_container')
 const error =       document.querySelector('.error')
-const clear =       document.querySelector('#clear')
-const clearAll =    document.querySelector('#clear_all')
+const clear =       document.querySelector('.clear')
 const theme =       document.querySelector('.theme_button')
 const fontAwesom =  document.querySelector('#font_awesome')
 let flag = 1
@@ -123,4 +122,10 @@ filterInput.addEventListener('input',e=>{
     })
     container.innerHTML = " "
     dom(filtered)
+})
+
+// clear all tasks
+clear.addEventListener('click',()=>{
+    container.innerHTML = " "
+    localStorage.clear()
 })
