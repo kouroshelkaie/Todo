@@ -13,14 +13,15 @@
 </head>
 <body>
     <div class="outer_container">
-        <span class="theme_button">
-            <i id="font_awesome" class="fas fa-moon"></i>
-        </span>
         <h1 class="header_title"><img src="svg/shape1.svg" id="shape">Daily.<small>ToDo</small></h1>
-
         <div class="buttons_container">
             <button class="add_button">Add</button>
             <button class="filter_button">Search</button>
+        </div>
+        <div class="features_container">            
+            <span class="clear_com fas fa-eraser feature" title="clear complete tasks"></span> 
+            <span class="clear fas fa-trash-alt feature" title="clear all tasks"></span>
+            <span id="font_awesome" class="fas fa-moon feature" title="enter to dark mode"></span> 
         </div>
         <div class="forms_container">
             <p class="error">enter a task!</p>
@@ -32,9 +33,6 @@
             </form>
         </div>
         <ul class="tasks_container"></ul>
-        <p class="clear">
-            Clear All Tasks
-        </p>
     </div>
 </body>
 </html>

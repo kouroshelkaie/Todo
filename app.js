@@ -8,6 +8,7 @@ const filterForm =  document.querySelector('#filter')
 const container =   document.querySelector('.tasks_container')
 const error =       document.querySelector('.error')
 const clear =       document.querySelector('.clear')
+const clearDone = document.querySelector('.clear_com')
 const theme =       document.querySelector('.theme_button')
 const fontAwesom =  document.querySelector('#font_awesome')
 let flag = 1
@@ -101,15 +102,21 @@ addForm.addEventListener('submit',e=>{
 })
 
 // dark theme
-theme.addEventListener("click",e=>{
+fontAwesom.addEventListener("click",e=>{
     if(fontAwesom.classList.contains('fa-moon')){
         fontAwesom.classList.remove('fa-moon')
         fontAwesom.classList.add('fa-sun')
+
+        clear.style.color = "#12bcc5"
+        clearDone.style.color = "#12bcc5"
     } else{
         fontAwesom.classList.remove('fa-sun')
         fontAwesom.classList.add('fa-moon')
+
+        clear.style.color = "#15676c"
+        clearDone.style.color = "#15676c"
     }
- 
+
     document.body.classList.toggle("dark_background")
 })
 
@@ -128,4 +135,16 @@ filterInput.addEventListener('input',e=>{
 clear.addEventListener('click',()=>{
     container.innerHTML = " "
     localStorage.clear()
+    location.reload();
+})
+// cleardone tasks
+clearDone.addEventListener('click',e=>{
+    let comTasks = task.filter((item,index)=>{
+        if(item.done) {
+            return item.done
+        }
+    })
+    localStorage.setItem("tasks",JSON.stringify(comTasks))
+    dom(comTasks)
+    location.reload();
 })

@@ -103,9 +103,12 @@ h1 > small {
   border-radius: 2px;
   padding: 0.8em 1em;
   transition: all 0.3s ease;
-  display: none;
+  display: block;
   font-size: 0.9em;
   font-family: "Quicksand", sans-serif;
+}
+#filter > input {
+    display: none;
 }
 #add_input:focus {
   outline: none;
@@ -125,7 +128,7 @@ h1 > small {
   justify-content: space-between;
   background-color: #e6e6e6;
   border-radius: 2px;
-  margin: 0.2em 0;
+  margin: 0.25em 0;
   padding: 0.5em 0.8em;
   color: #333333;
 }
@@ -171,45 +174,24 @@ h1 > small {
   background-image: linear-gradient(to top, #2b393b 0%, #2b393b 100%);
 }
 .fas {
-  position: absolute;
-  right: 0%;
-  top: 0%;
   cursor: pointer;
-  font-size: 0.9em;
-  margin: 0em 2em;
-}
-@media (max-width: 650px) {
-  .fas {
-    top: 0%;
-  }
-}
-@media (max-width: 550px) {
-  .fas {
-    font-size: 0.8em;
-  }
+  font-size: 0.8em;
 }
 .fa-sun {
   color: #12bcc5;
 }
 .fa-moon {
-  color: #e6e6e6;
+  color: #15676c;
   transform: rotate(220deg);
 }
-.clear {
-  color: #15676c;
-  position: fixed;
-  bottom: 0%;
-  left: 0%;
-  right: 0%;
-  cursor: pointer;
-  transition: all 0.1s linear;
-  font-size: .8em;
+/* clear */
+.features_container{
+    color: #15676c;
+    position: fixed;
+    bottom: 1%;
+    right: 0%; left: 0%;
+    font-size: 1.3em;
 }
-@media(max-width:600px) {
-    .clear{
-        font-size: .6em;
-    }
-}
-.clear:hover {
-  color: #08898f;
-}
+.feature{
+    margin: 1em 2em;
+} 
