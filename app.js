@@ -114,4 +114,13 @@ theme.addEventListener("click",e=>{
     document.body.classList.toggle("dark_background")
 })
 
-  
+
+// Filter search feature
+filterInput.addEventListener('input',e=>{
+    let inputValue = e.target.value
+    let filtered = task.filter((item)=>{
+        return item.todo.includes(inputValue)
+    })
+    container.innerHTML = " "
+    dom(filtered)
+})
